@@ -44,11 +44,11 @@ public class CalcServer extends Thread {
     }
 
     private String waitForCommand() {
-        String command;
+        String command = "";
         try {
             boolean hasEnded;
             do {
-                command = input.readLine();
+                command += input.readLine();
                 hasEnded = command.contains("$");
             } while (!hasEnded);
             return command;
