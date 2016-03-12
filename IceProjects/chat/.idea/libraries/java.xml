@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="java">
+    <CLASSES>
+      <root url="file://$ICE_REPOSITORY$" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$ICE_REPOSITORY$" />
+    </SOURCES>
+    <jarDirectory url="file://$ICE_REPOSITORY$" recursive="false" />
+    <jarDirectory url="file://$ICE_REPOSITORY$" recursive="false" type="SOURCES" />
+  </library>
+</component>
