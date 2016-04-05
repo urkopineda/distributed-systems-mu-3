@@ -1,5 +1,7 @@
 package engine;
 
+import Ice.ObjectAdapter;
+import Ice.ObjectPrx;
 import chat.ChatListener;
 import forum.ListenerPrx;
 import forum.ListenerPrxHelper;
@@ -16,7 +18,7 @@ public class Engine {
 
     private Ice.Communicator communicator;
     private Ice.ObjectAdapter adapter;
-    private ListenerPrx proxy;
+    private forum.ListenerPrx proxy;
 
     private Scanner keyboard;
 
@@ -24,16 +26,18 @@ public class Engine {
 
     public void start() {
         communicator = Ice.Util.initialize();
-        adapter = communicator.createObjectAdapterWithEndpoints(identity, "udp -h 224.0.0.5 -p 6666");
+        adapter = communicator.createObjectAdapterWithEndpoints(identity, "udp -h 239.1.1.1 -p 10000");
         ListenerPrxHelper.checkedCast(adapter.add(new ChatListener(), communicator.stringToIdentity(chatIdentity)));
-        proxy = ListenerPrxHelper.checkedCast(communicator.stringToProxy(chatIdentity + ": udp -h 224.0.0.5 -p 6666"));
+        ObjectPrx tempProxy = ListenerPrxHelper.checkedCast
+                (communicator.stringToProxy(chatIdentity + ": udp -h 239.1.1.1 -p 10000 --ttl 2 --interface 172.17.")).ice_datagram();
+        proxy = ListenerPrxHelper.checkedCast(tempProxy);
         adapter.activate();
         chat();
         communicator.destroy();
     }
 
     private void chat() {
-        String msg = null;
+        String msg;
         keyboard = new Scanner(System.in);
         do {
             msg = keyboard.nextLine();
