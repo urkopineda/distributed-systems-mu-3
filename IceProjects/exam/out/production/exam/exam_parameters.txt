@@ -1,0 +1,11 @@
+/**
+ * EXAM: Parameter to introduce during the test for each execution.
+ *
+ * 1º Voter: 6666 6667 4
+ * 2º Voter: 6667 6668 3
+ * 3º Voter: 6668 6669 2
+ * 4º Voter: 6669 6670 1
+ * 5º Voter: 6670 0 0
+ *
+ * @param args
+ */
