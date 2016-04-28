@@ -18,8 +18,12 @@
 // </auto-generated>
 //
 
-package ice_storm_chat_utils;
+package chat;
 
-public abstract class Callback_ChatManager_sendMessage extends Ice.OnewayCallback
+public interface ChatListener extends Ice.Object,
+                                      _ChatListenerOperations, _ChatListenerOperationsNC
 {
+    public static final String ice_staticId = "::chat::ChatListener";
+
+    public static final long serialVersionUID = -8780329194809860477L;
 }

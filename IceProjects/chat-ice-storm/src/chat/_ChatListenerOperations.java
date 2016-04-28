@@ -18,12 +18,9 @@
 // </auto-generated>
 //
 
-package ice_storm_chat_utils;
+package chat;
 
-public interface ChatManager extends Ice.Object,
-                                     _ChatManagerOperations, _ChatManagerOperationsNC
+public interface _ChatListenerOperations
 {
-    public static final String ice_staticId = "::chatIceStorm::ChatManager";
-
-    public static final long serialVersionUID = 3037443556326224694L;
+    void report(Contribution c, Ice.Current __current);
 }

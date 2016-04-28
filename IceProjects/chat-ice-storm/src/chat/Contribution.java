@@ -18,23 +18,20 @@
 // </auto-generated>
 //
 
-package ice_storm_chat_utils;
+package chat;
 
-public class Message implements java.lang.Cloneable, java.io.Serializable
+public class Contribution implements java.lang.Cloneable, java.io.Serializable
 {
-    public int id;
+    public String content;
 
-    public String message;
-
-    public Message()
+    public Contribution()
     {
-        message = "";
+        content = "";
     }
 
-    public Message(int id, String message)
+    public Contribution(String content)
     {
-        this.id = id;
-        this.message = message;
+        this.content = content;
     }
 
     public boolean
@@ -44,21 +41,17 @@ public class Message implements java.lang.Cloneable, java.io.Serializable
         {
             return true;
         }
-        Message _r = null;
-        if(rhs instanceof Message)
+        Contribution _r = null;
+        if(rhs instanceof Contribution)
         {
-            _r = (Message)rhs;
+            _r = (Contribution)rhs;
         }
 
         if(_r != null)
         {
-            if(id != _r.id)
+            if(content != _r.content)
             {
-                return false;
-            }
-            if(message != _r.message)
-            {
-                if(message == null || _r.message == null || !message.equals(_r.message))
+                if(content == null || _r.content == null || !content.equals(_r.content))
                 {
                     return false;
                 }
@@ -74,19 +67,18 @@ public class Message implements java.lang.Cloneable, java.io.Serializable
     hashCode()
     {
         int __h = 5381;
-        __h = IceInternal.HashUtil.hashAdd(__h, "::chatIceStorm::Message");
-        __h = IceInternal.HashUtil.hashAdd(__h, id);
-        __h = IceInternal.HashUtil.hashAdd(__h, message);
+        __h = IceInternal.HashUtil.hashAdd(__h, "::chat::Contribution");
+        __h = IceInternal.HashUtil.hashAdd(__h, content);
         return __h;
     }
 
-    public Message
+    public Contribution
     clone()
     {
-        Message c = null;
+        Contribution c = null;
         try
         {
-            c = (Message)super.clone();
+            c = (Contribution)super.clone();
         }
         catch(CloneNotSupportedException ex)
         {
@@ -98,19 +90,17 @@ public class Message implements java.lang.Cloneable, java.io.Serializable
     public void
     __write(IceInternal.BasicStream __os)
     {
-        __os.writeInt(id);
-        __os.writeString(message);
+        __os.writeString(content);
     }
 
     public void
     __read(IceInternal.BasicStream __is)
     {
-        id = __is.readInt();
-        message = __is.readString();
+        content = __is.readString();
     }
 
     static public void
-    __write(IceInternal.BasicStream __os, Message __v)
+    __write(IceInternal.BasicStream __os, Contribution __v)
     {
         if(__v == null)
         {
@@ -122,18 +112,18 @@ public class Message implements java.lang.Cloneable, java.io.Serializable
         }
     }
 
-    static public Message
-    __read(IceInternal.BasicStream __is, Message __v)
+    static public Contribution
+    __read(IceInternal.BasicStream __is, Contribution __v)
     {
         if(__v == null)
         {
-             __v = new Message();
+             __v = new Contribution();
         }
         __v.__read(__is);
         return __v;
     }
     
-    private static final Message __nullMarshalValue = new Message();
+    private static final Contribution __nullMarshalValue = new Contribution();
 
-    public static final long serialVersionUID = 7045206906104018368L;
+    public static final long serialVersionUID = 9047513222756803869L;
 }

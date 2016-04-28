@@ -18,9 +18,8 @@
 // </auto-generated>
 //
 
-package ice_storm_chat_utils;
+package chat;
 
-public interface _ChatManagerOperationsNC
+public abstract class Callback_ChatListener_report extends Ice.OnewayCallback
 {
-    void sendMessage(Message m);
 }

@@ -18,9 +18,18 @@
 // </auto-generated>
 //
 
-package ice_storm_chat_utils;
+package chat;
 
-public interface _ChatManagerOperations
+public final class ContributionHolder extends Ice.Holder<Contribution>
 {
-    void sendMessage(Message m, Ice.Current __current);
+    public
+    ContributionHolder()
+    {
+    }
+
+    public
+    ContributionHolder(Contribution value)
+    {
+        super(value);
+    }
 }

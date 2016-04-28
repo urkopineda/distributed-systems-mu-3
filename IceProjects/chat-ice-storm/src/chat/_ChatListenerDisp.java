@@ -18,9 +18,9 @@
 // </auto-generated>
 //
 
-package ice_storm_chat_utils;
+package chat;
 
-public abstract class _ChatManagerDisp extends Ice.ObjectImpl implements ChatManager
+public abstract class _ChatListenerDisp extends Ice.ObjectImpl implements ChatListener
 {
     protected void
     ice_copyStateFrom(Ice.Object __obj)
@@ -32,7 +32,7 @@ public abstract class _ChatManagerDisp extends Ice.ObjectImpl implements ChatMan
     public static final String[] __ids =
     {
         "::Ice::Object",
-        "::chatIceStorm::ChatManager"
+        "::chat::ChatListener"
     };
 
     public boolean ice_isA(String s)
@@ -70,19 +70,19 @@ public abstract class _ChatManagerDisp extends Ice.ObjectImpl implements ChatMan
         return __ids[1];
     }
 
-    public final void sendMessage(Message m)
+    public final void report(Contribution c)
     {
-        sendMessage(m, null);
+        report(c, null);
     }
 
-    public static Ice.DispatchStatus ___sendMessage(ChatManager __obj, IceInternal.Incoming __inS, Ice.Current __current)
+    public static Ice.DispatchStatus ___report(ChatListener __obj, IceInternal.Incoming __inS, Ice.Current __current)
     {
         __checkMode(Ice.OperationMode.Normal, __current.mode);
         IceInternal.BasicStream __is = __inS.startReadParams();
-        Message m = null;
-        m = Message.__read(__is, m);
+        Contribution c = null;
+        c = Contribution.__read(__is, c);
         __inS.endReadParams();
-        __obj.sendMessage(m, __current);
+        __obj.report(c, __current);
         __inS.__writeEmptyParams();
         return Ice.DispatchStatus.DispatchOK;
     }
@@ -93,7 +93,7 @@ public abstract class _ChatManagerDisp extends Ice.ObjectImpl implements ChatMan
         "ice_ids",
         "ice_isA",
         "ice_ping",
-        "sendMessage"
+        "report"
     };
 
     public Ice.DispatchStatus __dispatch(IceInternal.Incoming in, Ice.Current __current)
@@ -124,7 +124,7 @@ public abstract class _ChatManagerDisp extends Ice.ObjectImpl implements ChatMan
             }
             case 4:
             {
-                return ___sendMessage(this, in, __current);
+                return ___report(this, in, __current);
             }
         }
 

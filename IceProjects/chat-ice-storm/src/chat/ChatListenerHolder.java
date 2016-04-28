@@ -18,20 +18,37 @@
 // </auto-generated>
 //
 
-package ice_storm_chat_utils;
+package chat;
 
-public final class ChatManagerPrxHolder
+public final class ChatListenerHolder extends Ice.ObjectHolderBase<ChatListener>
 {
     public
-    ChatManagerPrxHolder()
+    ChatListenerHolder()
     {
     }
 
     public
-    ChatManagerPrxHolder(ChatManagerPrx value)
+    ChatListenerHolder(ChatListener value)
     {
         this.value = value;
     }
 
-    public ChatManagerPrx value;
+    public void
+    patch(Ice.Object v)
+    {
+        if(v == null || v instanceof ChatListener)
+        {
+            value = (ChatListener)v;
+        }
+        else
+        {
+            IceInternal.Ex.throwUOE(type(), v);
+        }
+    }
+
+    public String
+    type()
+    {
+        return _ChatListenerDisp.ice_staticId();
+    }
 }

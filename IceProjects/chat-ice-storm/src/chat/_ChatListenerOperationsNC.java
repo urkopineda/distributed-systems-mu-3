@@ -18,18 +18,9 @@
 // </auto-generated>
 //
 
-package ice_storm_chat_utils;
+package chat;
 
-public final class MessageHolder extends Ice.Holder<Message>
+public interface _ChatListenerOperationsNC
 {
-    public
-    MessageHolder()
-    {
-    }
-
-    public
-    MessageHolder(Message value)
-    {
-        super(value);
-    }
+    void report(Contribution c);
 }
